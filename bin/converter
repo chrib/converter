@@ -11,7 +11,7 @@ end
 
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc 'A simple command line program to convert between different measurements'
 
 version Converter::VERSION
 
@@ -23,31 +23,34 @@ default_value 'the default'
 arg_name 'The name of the argument'
 flag [:f,:flagname]
 
-desc 'Describe celsius here'
-arg_name 'Describe arguments to celsius here'
+desc 'Convert the given temperature to Celsius'
+arg_name 'degree in Fahrenheit'
 command :celsius do |c|
-  c.desc 'Describe a switch to celsius'
-  c.switch :s
-
-  c.desc 'Describe a flag to celsius'
-  c.default_value 'default'
-  c.flag :f
   c.action do |global_options,options,args|
+
+    if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
 
     # Your command logic here
      
     # If you have any errors, just raise them
     # raise "that command made no sense"
-
-    puts "celsius command ran"
+    Temperature.celsius(args[0].to_i)
   end
 end
 
-desc 'Describe fahrenheit here'
-arg_name 'Describe arguments to fahrenheit here'
+desc 'Convert the given temperature to Fahrenheit'
+arg_name 'degree in Celsius'
 command :fahrenheit do |c|
   c.action do |global_options,options,args|
-    puts "fahrenheit command ran"
+
+    if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
+    Temperature.fahrenheit(args[0].to_i)
   end
 end
 
