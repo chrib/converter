@@ -1,0 +1,5 @@
+= converter
+
+Generate this with
+    converter rdoc
+After you have described your command line interface
