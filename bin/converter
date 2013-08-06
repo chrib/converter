@@ -54,35 +54,51 @@ command :fahrenheit do |c|
   end
 end
 
-desc 'Describe meter here'
-arg_name 'Describe arguments to meter here'
+desc 'Convert the given distance to meter'
+arg_name 'distance in foot'
 command :meter do |c|
   c.action do |global_options,options,args|
-    puts "meter command ran"
+    if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
+    Distance.meter(args[0].to_i)
   end
 end
 
-desc 'Describe foot here'
-arg_name 'Describe arguments to foot here'
+desc 'Convert the given distance to foot'
+arg_name 'distance in meter'
 command :foot do |c|
   c.action do |global_options,options,args|
-    puts "foot command ran"
+     if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
+    Distance.foot(args[0].to_i)
   end
 end
 
-desc 'Describe miles here'
-arg_name 'Describe arguments to miles here'
+desc 'Convert the given distance to miles'
+arg_name 'distance in km'
 command :miles do |c|
   c.action do |global_options,options,args|
-    puts "miles command ran"
+      if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
+    Distance.miles(args[0].to_i)
   end
 end
 
-desc 'Describe km here'
-arg_name 'Describe arguments to km here'
+desc 'Convert the given distance to km'
+arg_name 'distance in miles'
 command :km do |c|
   c.action do |global_options,options,args|
-    puts "km command ran"
+       if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
+    Distance.km(args[0].to_i)
   end
 end
 
