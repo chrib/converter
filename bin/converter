@@ -102,19 +102,27 @@ command :km do |c|
   end
 end
 
-desc 'Describe cm here'
-arg_name 'Describe arguments to cm here'
+desc 'Convert the given height to cm'
+arg_name 'height in inches'
 command :cm do |c|
   c.action do |global_options,options,args|
-    puts "cm command ran"
+    if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
+    Height.cm(args[0].to_i)
   end
 end
 
-desc 'Describe inches here'
-arg_name 'Describe arguments to inches here'
+desc 'Convert the given height to inches'
+arg_name 'height in cm'
 command :inches do |c|
   c.action do |global_options,options,args|
-    puts "inches command ran"
+     if args.length > 1
+      raise "Only one argument can be converted"
+      exit 1
+    end
+    Height.inches(args[0].to_i)
   end
 end
 

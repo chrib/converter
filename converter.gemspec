@@ -12,6 +12,8 @@ spec = Gem::Specification.new do |s|
   s.files = %w(
 bin/converter
 lib/converter/version.rb
+lib/converter/temperature.rb
+lib/converter/height.rb
 lib/converter.rb
   )
   s.require_paths << 'lib'
