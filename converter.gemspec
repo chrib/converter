@@ -14,6 +14,7 @@ bin/converter
 lib/converter/version.rb
 lib/converter/temperature.rb
 lib/converter/height.rb
+lib/converter/distance.rb
 lib/converter.rb
   )
   s.require_paths << 'lib'
