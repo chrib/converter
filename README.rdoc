@@ -1,6 +1,6 @@
 = converter
 
-Describe your project here
+A small and stupid command line interface to convert measurements
 
 :include:converter.rdoc
 
